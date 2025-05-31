@@ -1,69 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Services | Lester Jay I. Liba</title>
-    <style>
-        /* same styles as index.html */
-        body {
-            font-family: Arial, sans-serif;
-            background: #eef2f7;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 700px;
-            margin: 50px auto;
-            padding: 30px;
-            background: #ffffff;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-radius: 15px;
-        }
-        h1 {
-            color: #0057b8;
-            margin-top: 20px;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #0057b8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            font-size: 13px;
-            color: #666;
-            margin-top: 30px;
-            padding-bottom: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services | Lester Jay I. Liba</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 15px;
+    }
+    h1 {
+      color: #0057b8;
+      margin-top: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #0057b8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+      text-align: left;
+    }
+    a.download-link {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.download-link:hover {
+      text-decoration: underline;
+    }
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .ppt-section {
+      margin-top: 40px;
+      text-align: left;
+    }
+    footer {
+      font-size: 13px;
+      color: #666;
+      margin-top: 30px;
+      padding-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Our Services</h1>
-        <ul style="text-align:left; max-width: 500px; margin: auto; color: #333;">
-            <li>File Submission Support</li>
-            <li>Academic Guidance</li>
-            <li>Resource Sharing</li>
-            <li>Student Consultation</li>
-        </ul>
+  <div class="container">
+    <h1>Our Services</h1>
+    <ul style="text-align:left; max-width: 500px; margin: auto; color: #333;">
+      <li>File Submission Support</li>
+      <li>Academic Guidance</li>
+      <li>Resource Sharing</li>
+      <li>Student Consultation</li>
+    </ul>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+    <div class="ppt-section">
+      <h2>Gamma Presentation Links</h2>
+      <input type="text" id="searchInput" onkeyup="filterPPTs()" placeholder="Search presentations...">
+
+      <ul id="pptList">
+        <li><a href="https://gamma.app/docs/Mastering-the-Art-of-Chiffon-Cake-sqoyfq0z6b3rr1w" class="download-link" target="_blank">Lesson 1 – Mastering the Art of Chiffon Cake</a></li>
+        <li><a href="https://gamma.app/docs/3ua2iz5ee42ayxu" class="download-link" target="_blank">Lesson 2 – Baking Basics</a></li>
+        <li><a href="https://gamma.app/docs/xl8y3cxv139znxc" class="download-link" target="_blank">Lesson 3 – Food Preparation Techniques</a></li>
+        <li><a href="https://gamma.app/docs/lguk6c419gmwosk" class="download-link" target="_blank">Lesson 4 – Kitchen Safety and Hygiene</a></li>
+      </ul>
     </div>
 
-    <footer>
-        &copy; 2025 Lester Jay I. Liba. All rights reserved.
-    </footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <footer>
+    &copy; 2025 Lester Jay I. Liba. All rights reserved.
+  </footer>
+
+  <script>
+    function filterPPTs() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const listItems = document.getElementById("pptList").getElementsByTagName("li");
+
+      for (let i = 0; i < listItems.length; i++) {
+        const text = listItems[i].innerText.toLowerCase();
+        listItems[i].style.display = text.includes(input) ? "" : "none";
+      }
+    }
+  </script>
 </body>
 </html>
